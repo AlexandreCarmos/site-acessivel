@@ -1,0 +1,59 @@
+import { useState } from "react";
+
+export default function App() {
+  return (
+    <div style={{ backgroundColor: "#ffe5b4", minHeight: "100vh", textAlign: "center", position: "relative", overflow: "hidden" }}>
+      {/* Música de fundo */}
+      <audio autoPlay loop>
+        <source src="/mnt/data/musica.mp3" type="audio/mpeg" />
+        Seu navegador não suporta áudio.
+      </audio>
+
+      {/* Fundo */}
+      <img
+        src="/mnt/data/4965007.jpg"
+        alt="Fundo"
+        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", opacity: 0.5, animation: "mover 10s infinite alternate" }}
+      />
+
+      {/* Flores */}
+      <img src="/mnt/data/flor.png" alt="Flor" style={{ width: "100px", position: "absolute", top: 20, left: 20, animation: "girar 8s linear infinite" }} />
+      <img src="/mnt/data/flor-bottom-direita.png" alt="Flor Direita" style={{ width: "100px", position: "absolute", bottom: 20, right: 20, animation: "girar 12s linear infinite reverse" }} />
+      <img src="/mnt/data/flor-esquerda.png" alt="Flor Esquerda" style={{ width: "100px", position: "absolute", bottom: 20, left: 20, animation: "girar 15s linear infinite" }} />
+
+      {/* Logo */}
+      <div style={{ position: "relative", paddingTop: "100px" }}>
+        <img src="/mnt/data/logo.png" alt="Logo Tropicália" style={{ width: "200px", animation: "pulso 2s infinite" }} />
+      </div>
+
+      {/* Fotos sempre visíveis */}
+      <div style={{ marginTop: "30px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <h2 style={{ color: "orange" }}>Fotos Históricas</h2>
+        <img src="/mnt/data/lossy-page1-640px-Jorge_Ben_e_o_Trio_Mocotó_no_Teatro_da_Lagoa,_1971.tif.jpg" alt="Jorge Ben" style={{ width: "200px", margin: "10px", animation: "fadein 2s" }} />
+        <img src="/mnt/data/lossy-page1-640px-Caetano_Veloso_no_III_Festival_da_Música_Popular.tif.jpg" alt="Caetano" style={{ width: "200px", margin: "10px", animation: "fadein 3s" }} />
+        <img src="/mnt/data/lossy-page1-640px-Gilberto_Gil_nos_anos_1960.tif.jpg" alt="Gilberto Gil" style={{ width: "200px", margin: "10px", animation: "fadein 4s" }} />
+      </div>
+
+      {/* Estilos para animações */}
+      <style>{`
+        @keyframes girar {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes pulso {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+          100% { transform: scale(1); }
+        }
+        @keyframes mover {
+          0% { transform: scale(1) translateX(0px); }
+          100% { transform: scale(1.05) translateX(10px); }
+        }
+        @keyframes fadein {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
+    </div>
+  );
+}
